@@ -3,7 +3,6 @@
 
 int main(){
     printf("HELLO WORLD!");
-    tree* t = new tree();
-    t -> test();
+
     return 0;
 }
