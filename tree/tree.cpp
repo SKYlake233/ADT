@@ -45,7 +45,7 @@ SearchTree Insert(ElementType x , SearchTree T){
      * */
     if(T == NULL){
         T = (SearchTree)malloc(sizeof (struct TreeNode));
-        if(T == NULL)
+        if(T == NULL);
 
         else{
             T -> Element = x;

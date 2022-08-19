@@ -13,10 +13,11 @@ set(CMAKE_CXX_STANDARD 14)
 # Add the source in project root directory
 aux_source_directory(. DIRSRCS)
 # Add header file include directories
-include_directories(./ ./tree)
+include_directories(./ ./tree ./AvlTree`)
 #[[添加到build任务列表]]
 add_subdirectory(tree)
+add_subdirectory(AvlTree)
 #[[使用指定的源文件生成可执行文件]]
 add_executable(ADT ${DIRSRCS})
 #[[目标文件与库文件链接]]
-target_link_libraries(ADT tree)
+target_link_libraries(ADT tree avltree)
