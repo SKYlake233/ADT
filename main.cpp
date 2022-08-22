@@ -1,8 +1,8 @@
 #include <stdio.h>
-#include "tree.h"
-
+#include "Heap.h"
 int main(){
-    printf("HELLO WORLD!");
-
+    PriorityQueue H;
+    H = Initialize(10);
+    getchar();
     return 0;
 }

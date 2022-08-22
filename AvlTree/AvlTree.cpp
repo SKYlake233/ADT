@@ -84,6 +84,8 @@ AvlTree Insert(ElementType x , AvlTree T){
 }
 AvlTree Delete(ElementType x , AvlTree T){
     //删除avl树的简单例子  删除要复杂的多，使用懒惰删除内部必须添加变量表示该节点是否删除，在此不做对该二叉树的完善
+    //删除可能会导致AVl树失去平衡，先转化为二叉搜索树删除叶子结点，然后通过调整失衡节点进行删除即可
+
 
 }
 ElementType Retrieve(Position P){
