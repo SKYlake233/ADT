@@ -8,6 +8,7 @@ struct TreeNode{
     SearchTree left;
     SearchTree right;
 };
+
 SearchTree MakeEmpty(SearchTree T){
     if(T != NULL){
         MakeEmpty(T -> left);
@@ -31,6 +32,7 @@ Position FindMax(SearchTree T){
         return T;
     return FindMax(T -> right);
 }
+
 Position FindMin(SearchTree T){
     if(!T)
         return NULL;
@@ -38,6 +40,7 @@ Position FindMin(SearchTree T){
         T = T -> left;
     return T;
 }
+
 SearchTree Insert(ElementType x , SearchTree T){
     /*二叉查找树的插入
      * 1.分配空间，查找插入位置
@@ -45,8 +48,10 @@ SearchTree Insert(ElementType x , SearchTree T){
      * */
     if(T == NULL){
         T = (SearchTree)malloc(sizeof (struct TreeNode));
-        if(T == NULL);
-
+        if(T == NULL){
+            //错误日志
+            return NULL;
+        }
         else{
             T -> Element = x;
             T -> left = T -> right = NULL;
@@ -58,7 +63,6 @@ SearchTree Insert(ElementType x , SearchTree T){
         else
             if(x > T -> Element)
             Insert(x , T -> right);
-        /*相等是不做重复的插入*/
     }
     return T;
 }
@@ -76,7 +80,8 @@ SearchTree Delete(ElementType x , SearchTree T){
     else if(x > T -> Element){
         T -> right = Delete(x , T -> right);
     }
-    //两个孩子
+    //找到该节点    右子树的最左边的叶子，一定是右子树最小的，可以替代这个要删除的节点
+    //换一种思路    左子树的最大值钚也可以做同样的替换吗
     else if(T -> left && T -> right){
         TmpCell = FindMin(T -> right);
         T -> Element = TmpCell -> Element;
